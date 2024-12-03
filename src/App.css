@@ -1,42 +1,152 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Grundlegende Einstellungen für den gesamten Body */
+html, body {
+  height: 20%; /* Stelle sicher, dass der Body den gesamten Bildschirm ausfüllt */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #9aa2aa;
+  color:  rgb(135, 208, 242);
+  display: flex; /* Flexbox wird verwendet, um die Container in einer Spalte zu ordnen */
+  flex-direction: column; /* Vertikale Anordnung der Elemente */
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #292828;
+  color: rgb(24, 154, 214);
+  width: 97%;
+  position: fixed; /* Fixiere den Header am oberen Bildschirmrand */
+  top: 0;
+  left: 0;
+  z-index: 100; /* Stelle sicher, dass der Header oben bleibt */
+}
+
+/* Logo im Header */
+.header .logo h1 {
+  margin: 0;
+}
+
+/* Navigation im Header */
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header nav ul li {
+  margin-left: 1rem;
+}
+
+.header nav ul li a {
+  color:  rgb(24, 154, 214);
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem; /* Der obere Padding-Wert stellt sicher, dass der Inhalt nicht unter dem Header versteckt ist */
+  background-color: #3c8ab7;
+  min-height: 0vh; /* Hero Abschnitt nimmt mindestens den gesamten Bildschirm ein */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative; /* Stellt sicher, dass die absolute Positionierung im Verhältnis zum Container erfolgt */}
+
+.hero .hero-content {
+  position: relative; /* Stellt sicher, dass das Bild und der Text innerhalb dieses Containers richtig positioniert sind */
+}
+
+.hero .round-image {
+  width: 300px;  /* Bildgröße */
+  height: 300px;  /* Bildgröße */
+  border-radius: 50%;  /* Rundes Bild */
+  background-image: url('assets/Bild_2.jpg');
+  background-size: cover; /* Stellt sicher, dass das Bild korrekt skaliert wird */
+  object-fit: cover;  /* Bild passt sich an, ohne verzerrt zu werden */
+  border: 3px solid #9aa2aa;  /* Optionaler Rand */
+  margin-top: 100px;  /* Abstand nach oben, wodurch das Bild nach unten verschoben wird */
+  margin-bottom: -5px;  /* Abstand nach unten */
+  display: block;  /* Sicherstellen, dass es als Blockelement behandelt wird */
+  margin-left: auto;
+  margin-right: auto; /* Bild horizontal zentrieren */
+}
+
+
+.hero .name {
+  position: absolute; /* Positioniere den Namen absolut im Container */
+  top: 0%;  /* Abstand vom oberen Rand */
+  left: 50%;  /* Horizontale Zentrierung */
+  transform: translateX(-50%); /* Zentriere den Text exakt */
+  font-size: 2rem; /* Schriftgröße */
+  font-weight: bold; /* Fetter Text */
+  color: rgb(135, 208, 242); /* Weißer Text */
+  z-index: 1; /* Stellt sicher, dass der Text über dem Bild angezeigt wird */
+}
+/* Über mich, Projekte und Kontakt Sektionen */
+.about, .projects, .contact {
   padding: 2rem;
   text-align: center;
+  width: 100%; /* Sorgt dafür, dass diese Abschnitte den gesamten Raum einnehmen */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Projekt Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Projektkarte */
+.project-card {
+  padding: 1rem;
+  border: 1px solid  rgb(24, 154, 214);
+  border-radius: 8px;
+  background-color:  rgb(24, 154, 214);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Kontaktformular */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid  rgb(24, 154, 214);
+  border-radius: 4px;
 }
 
-.read-the-docs {
-  color: #888;
+.contact form button {
+  padding: 0.5rem 1rem;
+  background-color: #9aa2aa;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgb(24, 154, 214);
+  color: rgb(135, 208, 242);
+  width: 100%;
+  position: relative; /* Der Footer wird am unteren Ende der Seite bleiben */
+}
+
+/* Sicherstellen, dass der Footer immer unten bleibt, falls der Inhalt zu wenig ist */
+.main-content {
+  flex-grow: 1; /* Stellt sicher, dass der Inhalt den verbleibenden Platz ausfüllt */
 }
