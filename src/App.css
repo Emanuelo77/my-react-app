@@ -1,42 +1,243 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Grundlegende Einstellungen für den gesamten Body */
+html, body {
+  height: 50%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #9aa2aa;
+  color: rgb(160, 242, 135);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #c7ef23;
+  color: rgb(24, 198, 214);
+  width: 97%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* Logo im Header */
+.header .logo h1 {
+  margin: 0;
+}
+
+/* Navigation im Header */
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header nav ul li {
+  margin-left: 1rem;
+}
+
+.header nav ul li a {
+  color: rgb(28, 196, 239);
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  background-color: rgb(24, 154, 214);
+  min-height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero .hero-content {
+  position: relative;
+}
+
+/* Rundes Bild mit innovativen Effekten */
+.hero .round-image {
+  width: 200px; /* Bildgröße */
+  height: 200px; /* Bildgröße */
+  border-radius: 50%; /* Rundes Bild (nicht 800%, sondern 50% für ein perfektes rundes Bild) */
+  background-image: url('assets/Bild_2.jpg');
+  background-size: cover; /* Stellt sicher, dass das Bild korrekt skaliert wird */
+  object-fit: cover; /* Bild passt sich an, ohne verzerrt zu werden */
+  border: 3px solid #9aa2aa; /* Optionaler Rand */
+  margin-bottom: 20px; /* Abstand nach unten */
+  display: block; /* Sicherstellen, dass es als Blockelement behandelt wird */
+  margin-left: auto;
+  margin-right: auto; /* Bild horizontal zentrieren */
+}
+/* Bild Hover-Effekt */
+.hero .round-image:hover {
+  transform: scale(1.05); /* Bild leicht vergrößern */
+  box-shadow: 0 8px 15px rgba(235, 233, 233, 0.888); /* Schatten beim Hover */
+}
+
+/* Über mich, Projekte und Kontakt Sektionen */
+.about, .projects, .contact {
   padding: 2rem;
   text-align: center;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Projekt Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Projektkarte */
+.project-card {
+  padding: 1rem;
+  border: 1px solid rgb(24, 154, 214);
+  border-radius: 8px;
+  background-color: rgb(24, 154, 214);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Leicht anheben beim Hover */
+}
+
+/* Kontaktformular */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid rgb(24, 154, 214);
+  border-radius: 4px;
+}
+
+/* Alle Buttons auf der Seite */
+button, .btn, .certificate-card .btn, .contact form button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #007bff, #00c6ff); /* Farbverlauf für den Button */
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4); /* Schatteneffekt */
+  transition: all 0.3s ease;
+  cursor: pointer; /* Zeigt an, dass der Button klickbar ist */
+}
+
+/* Hover-Effekt für den Button */
+button:hover, .btn:hover, .certificate-card .btn:hover, .contact form button:hover {
+  background: linear-gradient(135deg, #00c6ff, #007bff); /* Farbänderung beim Hover */
+  transform: translateY(-3px); /* Button hebt sich leicht */
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.6); /* Stärkerer Schatten */
+}
+
+/* Effekt, wenn der Button geklickt wird */
+button:active, .btn:active, .certificate-card .btn:active, .contact form button:active {
+  transform: translateY(1px); /* Button „drückt“ nach unten */
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgb(24, 154, 214);
+  color: rgb(135, 208, 242);
+  width: 100%;
+  position: relative;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+/* Zertifikate Sektion */
+.certificates {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: rgb(24, 154, 214); /* Heller Hintergrund für den Zertifikate-Bereich */
+  color: #c7ef23;
+}
+
+/* Zertifikate Grid */
+.certificate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Zwei Spalten für Desktop-Ansicht */
+  gap: 2rem; /* Abstand zwischen den Karten */
+  margin-top: 2rem;
+  align-items: start; /* Verhindert, dass die Karten ungleichmäßig sind */
+}
+
+/* Zertifikat Karten */
+.certificate-card {
+  background-color:#007bff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px  #c7ef23;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-Effekt für Zertifikatkarten */
+.certificate-card:hover {
+  transform: translateY(-5px); /* Karten heben sich leicht beim Hover */
+  box-shadow: 0 6px 15px rgb(174, 174, 174); /* Stärkeren Schatten beim Hover */
+}
+
+.certificate-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color:  #c7ef23;
+}
+
+.certificate-card p {
+  font-size: 1rem;
+  color:  #c7ef23;
+  margin-bottom: 1.5rem;
+}
+
+/* Button für Zertifikate */
+.certificate-card .btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #007bff, #007bff);
+  color: rgb(135, 208, 242);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px  #c7ef23;
+  transition: all 0.3s ease;
+}
+
+.certificate-card .btn:hover {
+  background: #007bff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px  #c7ef23;
+}
+
+.certificate-card .btn:active {
+  transform: translateY(1px);
+}
+
+/* Responsives Design für kleinere Bildschirme */
+@media (max-width: 768px) {
+  .certificate-grid {
+    grid-template-columns: 1fr; /* Für mobile Geräte nur eine Spalte */
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
