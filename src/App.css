@@ -1,13 +1,13 @@
 /* Grundlegende Einstellungen für den gesamten Body */
 html, body {
-  height: 20%; /* Stelle sicher, dass der Body den gesamten Bildschirm ausfüllt */
+  height: 50%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #9aa2aa;
-  color:  rgb(135, 208, 242);
-  display: flex; /* Flexbox wird verwendet, um die Container in einer Spalte zu ordnen */
-  flex-direction: column; /* Vertikale Anordnung der Elemente */
+  color: rgb(160, 242, 135);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header */
@@ -16,13 +16,13 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #292828;
-  color: rgb(24, 154, 214);
+  background-color: #c7ef23;
+  color: rgb(24, 198, 214);
   width: 97%;
-  position: fixed; /* Fixiere den Header am oberen Bildschirmrand */
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 100; /* Stelle sicher, dass der Header oben bleibt */
+  z-index: 100;
 }
 
 /* Logo im Header */
@@ -43,56 +43,75 @@ html, body {
 }
 
 .header nav ul li a {
-  color:  rgb(24, 154, 214);
+  color: rgb(28, 196, 239);
   text-decoration: none;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 6rem 2rem 4rem; /* Der obere Padding-Wert stellt sicher, dass der Inhalt nicht unter dem Header versteckt ist */
-  background-color: #3c8ab7;
-  min-height: 0vh; /* Hero Abschnitt nimmt mindestens den gesamten Bildschirm ein */
+  padding: 6rem 2rem 4rem;
+  background-color: rgb(24, 154, 214);
+  min-height: 35vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative; /* Stellt sicher, dass die absolute Positionierung im Verhältnis zum Container erfolgt */}
-
-.hero .hero-content {
-  position: relative; /* Stellt sicher, dass das Bild und der Text innerhalb dieses Containers richtig positioniert sind */
+  position: relative;
 }
 
+.hero .hero-content {
+  position: relative;
+}
+
+/* Rundes Bild mit innovativen Effekten */
 .hero .round-image {
-  width: 300px;  /* Bildgröße */
-  height: 300px;  /* Bildgröße */
-  border-radius: 50%;  /* Rundes Bild */
+  width: 200px;  /* Bildgröße */
+  height: 200px;  /* Bildgröße */
+  border-radius: 50%;  /* Rundes Bild (nicht 800%,  sondern 50% für ein perfektes rundes Bild) */
   background-image: url('assets/Bild_2.jpg');
   background-size: cover; /* Stellt sicher, dass das Bild korrekt skaliert wird */
   object-fit: cover;  /* Bild passt sich an, ohne verzerrt zu werden */
-  border: 3px solid #9aa2aa;  /* Optionaler Rand */
-  margin-top: 100px;  /* Abstand nach oben, wodurch das Bild nach unten verschoben wird */
-  margin-bottom: -5px;  /* Abstand nach unten */
+  border: 3px solid  #9aa2aa;  /* Optionaler Rand */
+  margin-bottom: 20px;  /* Abstand nach unten */
   display: block;  /* Sicherstellen, dass es als Blockelement behandelt wird */
   margin-left: auto;
   margin-right: auto; /* Bild horizontal zentrieren */
 }
-
-
-.hero .name {
-  position: absolute; /* Positioniere den Namen absolut im Container */
-  top: 0%;  /* Abstand vom oberen Rand */
-  left: 50%;  /* Horizontale Zentrierung */
-  transform: translateX(-50%); /* Zentriere den Text exakt */
-  font-size: 2rem; /* Schriftgröße */
-  font-weight: bold; /* Fetter Text */
-  color: rgb(135, 208, 242); /* Weißer Text */
-  z-index: 1; /* Stellt sicher, dass der Text über dem Bild angezeigt wird */
+/* Bild Hover-Effekt */
+.hero .round-image:hover {
+  transform: scale(1.05); /* Bild leicht vergrößern */
+  box-shadow: 0 8px 15px rgba(235, 233, 233, 0.888); /* Schatten beim Hover */
 }
+
+/* Name über dem Bild */
+.hero .name {
+  position: absolute;
+  top: -50%; 
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(135, 208, 242);
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 1.5s forwards; /* Animation beim Laden */
+}
+
+/* Fade-In-Animation für den Namen */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /* Über mich, Projekte und Kontakt Sektionen */
 .about, .projects, .contact {
   padding: 2rem;
   text-align: center;
-  width: 100%; /* Sorgt dafür, dass diese Abschnitte den gesamten Raum einnehmen */
+  width: 100%;
 }
 
 /* Projekt Grid */
@@ -105,9 +124,14 @@ html, body {
 /* Projektkarte */
 .project-card {
   padding: 1rem;
-  border: 1px solid  rgb(24, 154, 214);
+  border: 1px solid rgb(24, 154, 214);
   border-radius: 8px;
-  background-color:  rgb(24, 154, 214);
+  background-color: rgb(24, 154, 214);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Leicht anheben beim Hover */
 }
 
 /* Kontaktformular */
@@ -143,10 +167,106 @@ html, body {
   background-color: rgb(24, 154, 214);
   color: rgb(135, 208, 242);
   width: 100%;
-  position: relative; /* Der Footer wird am unteren Ende der Seite bleiben */
+  position: relative;
 }
 
-/* Sicherstellen, dass der Footer immer unten bleibt, falls der Inhalt zu wenig ist */
 .main-content {
-  flex-grow: 1; /* Stellt sicher, dass der Inhalt den verbleibenden Platz ausfüllt */
+  flex-grow: 1;
+}
+
+/* Schön gestalteter Button */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #00c6ff, #007bff);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.6);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+/* Zertifikate Sektion */
+.certificates {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color:  rgb(24, 154, 214); /* Heller Hintergrund für den Zertifikate-Bereich */
+  color: #c7ef23;
+}
+
+/* Zertifikate Grid */
+.certificate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Zwei Spalten für Desktop-Ansicht */
+  gap: 2rem; /* Abstand zwischen den Karten */
+  margin-top: 2rem;
+  align-items: start; /* Verhindert, dass die Karten ungleichmäßig sind */
+}
+
+/* Zertifikat Karten */
+.certificate-card {
+  background-color:rgb(135, 208, 242);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px  #c7ef23;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-Effekt für Zertifikatkarten */
+.certificate-card:hover {
+  transform: translateY(-5px); /* Karten heben sich leicht beim Hover */
+  box-shadow: 0 6px 15px rgb(174, 174, 174); /* Stärkeren Schatten beim Hover */
+}
+
+.certificate-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color:  #c7ef23;
+}
+
+.certificate-card p {
+  font-size: 1rem;
+  color:  #c7ef23;
+  margin-bottom: 1.5rem;
+}
+
+/* Button für Zertifikate */
+.certificate-card .btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color:rgb(135, 208, 242);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px  #c7ef23;
+  transition: all 0.3s ease;
+}
+
+.certificate-card .btn:hover {
+  background:  #c7ef23;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px  #c7ef23;
+}
+
+.certificate-card .btn:active {
+  transform: translateY(1px);
+}
+
+/* Responsives Design für kleinere Bildschirme */
+@media (max-width: 768px) {
+  .certificate-grid {
+    grid-template-columns: 1fr; /* Für mobile Geräte nur eine Spalte */
+  }
 }

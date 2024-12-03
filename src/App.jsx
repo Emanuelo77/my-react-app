@@ -1,4 +1,5 @@
 import './App.css';
+import './Übermich.jsx'
 
 function App() {
   return (
@@ -37,22 +38,22 @@ function App() {
         </p>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="projects">
-        <h2>Projekte</h2>
-        <div className="project-grid">
-          <div className="project-card">
-            <h3>Projekt 1</h3>
-            <p>Beschreibung des Projekts.</p>
-            <a href="#" className="btn">Mehr erfahren</a>
-          </div>
-          <div className="project-card">
-            <h3>Projekt 2</h3>
-            <p>Beschreibung des Projekts.</p>
-            <a href="#" className="btn">Mehr erfahren</a>
-          </div>
-        </div>
-      </section>
+      {/* Zertifikate Section */}
+      <section id="certificates" className="certificates">
+  <h2>Meine Zertifikate & Projekten</h2>
+  <div className="certificate-grid">
+    <div className="certificate-card">
+      <h3>Zertiefiezierungen </h3>
+      <p>Beschreibung Uber Meine Zertifikate.</p>
+      <a href="#" className="btn">Mehr erfahren</a>
+    </div>
+    <div className="certificate-card">
+      <h3>Meine Projekte</h3>
+      <p>Unter diesem Button finden Sie weitere Informationen über meine spannenden Projekte.</p>
+      <a href="#" className="btn">Mehr erfahren</a>
+    </div>
+  </div>
+</section>
 
       {/* Contact Section */}
       <section id="contact" className="contact">
